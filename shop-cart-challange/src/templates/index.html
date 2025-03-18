@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shop Cart</title>
+</head>
+<body>
+    <h1>Shop Cart</h1>
+    <form action="/search" method="get">
+        <input type="text" name="name" placeholder="Search by name">
+        <input type="text" name="description" placeholder="Search by description">
+        <input type="text" name="manufacturer" placeholder="Search by manufacturer">
+        <input type="number" name="min_price" placeholder="Min price">
+        <input type="number" name="max_price" placeholder="Max price">
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for product in products %}
+        <li>
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+            <p>Price: ${{ product.price }}</p>
+            <p>Manufacturer: {{ product.manufacturer }}</p>
+            <form action="/cart/add/{{ product.id }}" method="post">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+    <h2>My Cart</h2>
+    <ul>
+        {% for item in cart_items %}
+        <li>
+            <h3>{{ item.name }}</h3>
+            <p>Price: ${{ item.price }}</p>
+            <form action="/cart/remove/{{ item.id }}" method="post">
+                <button type="submit">Remove from Cart</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+    <p>Total: ${{ cart_total }}</p>
+</body>
+</html>
