@@ -1,0 +1,4 @@
+flask==2.3.3
+flask-socketio==5.3.5
+python-dotenv==1.0.0
+eventlet==0.35.0  # 또는 gevent, 웹소켓 지원을 위한 비동기 서버

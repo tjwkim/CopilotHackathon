@@ -4,12 +4,12 @@ from fastapi.responses import HTMLResponse
 from typing import List, Optional
 import json
 import os
-from src.product import Product
-from src.cart import Cart
+from product import Product  # src. 제거
+from cart import Cart  # src. 제거
 
 app = FastAPI()
 cart = Cart()
-templates = Jinja2Templates(directory="src/templates")
+templates = Jinja2Templates(directory="templates")  # src/ 제거
 
 # 절대 경로로 수정
 file_path = os.path.join(os.path.dirname(__file__), 'automobileParts.json')

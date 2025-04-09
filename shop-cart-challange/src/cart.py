@@ -1,5 +1,5 @@
 from typing import List
-from src.product import Product
+from product import Product  # src. 제거
 
 class Cart:
     def __init__(self):
